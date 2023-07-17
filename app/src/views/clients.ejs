@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <%- include('components/head'); -%>
+  <body class="app">
+    <div class="client-register-card">
+      <h1><%= title %></h1>
+      <form
+        autocomplete="off"
+        action="<%= authServerUrl %>/clients"
+        method="post"
+      >
+        <label>Client ID</label>
+        <input required type="text" name="client_id" placeholder="Client ID" />
+        <label>Client Secret</label>
+        <input required type="text" name="client_secret" placeholder="Client Secret"/>
+        <label>Redirect URIs</label>
+        <input required type="text" name="redirect_uris" placeholder="Redirect URIs" />
+        <label>Scope</label>
+        <input required type="text" name="scope" placeholder="Scope" />
+
+        <button type="submit" class="login login-submit">Register</button>
+      </form>
+    </div>
+  </body>
+</html>
