@@ -1,4 +1,5 @@
 import { Middleware } from "koa";
+import * as userAgentService from "../../../oidc/src/services/user-agent-persist.service";
 
 export default (): { [key: string]: Middleware } => ({
   registerForm: async (ctx) => {

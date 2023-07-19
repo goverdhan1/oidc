@@ -2,6 +2,9 @@ import { Middleware } from "koa";
 import { Provider } from "oidc-provider";
 import * as accountService from "../services/account-persist.service";
 import * as clientService from "../services/clients-persist.service";
+import * as userAgentService from "../services/user-agent-persist.service";
+import fetch from "node-fetch";
+import UserAgent from 'user-agents';
 
 function debug(obj: any) {
   return Object.entries(obj)
@@ -57,6 +60,15 @@ export default (oidc: Provider): { [key: string]: Middleware } => ({
     });
     ctx.message = "Client successfully created.";
   },
+
+  userAgent: async (ctx) => {
+    const body = ctx.request.body;
+    console.log('auth controller', body);
+    await userAgentService.set(body.user, {
+      payload: body
+    });
+    ctx.message = "Client successfully created.";
+  },
   confirmInteraction: async (ctx) => {
     const interactionDetails = await oidc.interactionDetails(ctx.req, ctx.res);
     const {
@@ -95,6 +107,24 @@ export default (oidc: Provider): { [key: string]: Middleware } => ({
           mergeWithLastSubmission: true,
         });
       }
+
+      console.log('interaction', interactionDetails);
+
+      let userAgent = new UserAgent();
+      userAgent = JSON.stringify(userAgent.data, null, 1);
+      console.log("useragent", userAgent.toString());
+      const data = JSON.stringify({'userAgent':userAgent, 'interactionDetails':interactionDetails});
+      console.log('fetch', data);
+
+      const response = await fetch('/userAgent', {
+        method: "POST",
+        body: data
+      });
+      if (response.status !== 200) ctx.throw(401);
+      const json = await response.json();
+
+      console.log('hi')
+      
     } else {
       ctx.throw(400, "Interaction prompt type must be `consent`.");
     }

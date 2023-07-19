@@ -21,3 +21,11 @@ clients.set("app", {
   ],
   scope: "openid email profile phone address offline_access api:read",
 })
+
+export const userAgent = new Map();
+
+userAgent.set("userAgent", {
+  key: 1,
+  payload: { },
+  expiresAt: "" 
+})
