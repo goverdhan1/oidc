@@ -2,6 +2,9 @@ import { Middleware } from "koa";
 import fetch from "node-fetch";
 
 export const authenticate: Middleware = async (ctx, next) => {
+
+  console.log("authenticate", ctx)
+
   const body = new URLSearchParams();
   if (!ctx.request.headers.authorization) return ctx.throw(401);
   body.append(
@@ -33,6 +36,10 @@ export const authenticate: Middleware = async (ctx, next) => {
 export const authorize =
   (...scopes: string[]): Middleware =>
     async (ctx, next) => {
+
+      console.log("authorize", ctx)
+
+
       if (
         ctx.state.session &&
         scopes.every((scope) => ctx.state.session.scope.includes(scope))

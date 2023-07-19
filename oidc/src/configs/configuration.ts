@@ -42,6 +42,93 @@ export const configuration: Configuration = {
       scope: "openid email profile phone address offline_access api:read",
     },
     {
+      client_id: "app1",
+      client_secret: "scorpion",
+      redirect_uris: ["https://localhost:4204"],
+      grant_types: [
+        "authorization_code",
+        "password",
+        "refresh_token",
+        "client_credentials",
+      ],
+      scope: "openid email profile phone address offline_access api:read",
+    },
+    {
+      client_id: "app2",
+      client_secret: "scorpion",
+      redirect_uris: ["https://localhost:4204/home"],
+      grant_types: [
+        "authorization_code",
+        "password",
+        "refresh_token",
+        "client_credentials",
+      ],
+      scope: "openid email profile phone address offline_access api:read",
+    },
+    {
+      client_id: "angular2App",
+      client_secret: "scorpion",
+      redirect_uris: ["https://localhost:4200/auth.html"],
+      grant_types: [
+        "authorization_code",
+        "password",
+        "refresh_token",
+        "client_credentials",
+      ],
+      scope: "openid email profile phone address offline_access api:read",
+    },
+
+    {
+      client_id: "lazyload",
+      client_secret: "scorpion",
+      redirect_uris: ["https://localhost:4204"],
+      grant_types: [
+        "authorization_code",
+        "password",
+        "refresh_token",
+        "client_credentials",
+      ],
+      scope: "openid email profile phone address offline_access api:read",
+    },
+
+    {
+      client_id: "app3",
+      client_secret: "scorpion",
+      redirect_uris: ["http://localhost:4200"],
+      grant_types: [
+        "authorization_code",
+        "password",
+        "refresh_token",
+        "client_credentials",
+      ],
+      scope: "openid email profile phone address offline_access api:read",
+    },
+
+    {
+      client_id: "app4",
+      client_secret: "scorpion",
+      redirect_uris: ["https://localhost:4200"],
+      grant_types: [
+        "authorization_code",
+        "password",
+        "refresh_token",
+        "client_credentials",
+      ],
+      scope: "openid email profile phone address offline_access api:read",
+    },
+    {
+      client_id: "standalone",
+      client_secret: "scorpion",
+      redirect_uris: ["https://localhost:4204"],
+      grant_types: [
+        "authorization_code",
+        "password",
+        "refresh_token",
+        "client_credentials",
+      ],
+      scope: "openid email profile phone address offline_access api:read",
+    },
+    {
       client_id: "api",
       client_secret: "night-wolf",
       redirect_uris: [],
@@ -49,6 +136,32 @@ export const configuration: Configuration = {
       grant_types: ["client_credentials"],
       scope: "openid email profile phone address",
     },
+    {
+      client_id: "maui",
+      client_secret: "scorpion",
+      redirect_uris: ["http://localhost:4204"],
+      grant_types: [
+        "authorization_code",
+        "password",
+        "refresh_token",
+        "client_credentials",
+      ],
+      scope: "openid email profile phone address offline_access api:read",
+    },
+    {
+      client_id: "express",
+      client_secret: "scorpion",
+      redirect_uris: ["http://localhost:3001/login/callback"],
+      grant_types: [
+        "authorization_code",
+        "password",
+        "refresh_token",
+        "client_credentials",
+      ],
+      scope: "openid email profile phone address offline_access api:read",
+    },
+
+
   ],
   claims: {
     address: ["address"],

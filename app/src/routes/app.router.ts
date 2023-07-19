@@ -4,7 +4,7 @@ import appController from "../controllers/app.controller";
 export default () => {
   const router = new Router();
 
-  const { callback, sampleApp, signIn, clientLogin, registerForm, pi, clientsForm } =
+  const { callback, sampleApp, signIn, clientLogin, registerForm, pi, clientsRegister } =
     appController();
 
   router.get("/", sampleApp);
@@ -13,7 +13,7 @@ export default () => {
   router.get("/client-login", clientLogin);
   router.get("/cb", callback);
   router.get("/pi", pi);
-  router.get("/clients", clientsForm);
+  router.get("/clients", clientsRegister);
 
   return router;
 };

@@ -24,6 +24,32 @@ services:
       - "3006:80"
     volumes:
       - .:/app
+  express:
+    image: node:16-alpine
+    command: yarn start:express
+    working_dir: /app
+    environment:
+      - PORT=80
+      - OIDC_ISSUER=$OIDC_ISSUER
+      - CLIENT_ID=express
+      - CLIENT_SECRET=scorpion
+    ports:
+      - "3001:80"
+    volumes:
+      - .:/app
+  express1:
+    image: node:16-alpine
+    command: yarn start:express1
+    working_dir: /app
+    environment:
+      - PORT=80
+      - OIDC_ISSUER=$OIDC_ISSUER
+      - CLIENT_ID=express1
+      - CLIENT_SECRET=scorpion
+    ports:
+      - "3002:80"
+    volumes:
+      - .:/app
   app:
     image: node:16-alpine
     command: yarn start:app

@@ -10,6 +10,8 @@
   "scripts": {
     "docker-compose:up": "docker-compose up -d",
     "docker-compose:down": "docker-compose down",
+    "start:express": "node express/src/index",
+    "start:express1": "node express1/bin/www",
     "start:api": "ts-node api/src",
     "start:app": "ts-node app/src",
     "start:oidc": "ts-node oidc/src",
@@ -17,6 +19,11 @@
   },
   "dependencies": {
     "@koa/cors": "^3.1.0",
+    "connect-ensure-login": "^0.1.1",
+    "cookie-parser": "^1.4.6",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "helmet": "^7.0.0",
     "koa": "^2.13.1",
     "koa-body": "^4.2.0",
     "koa-ejs": "^4.3.0",
@@ -24,10 +31,17 @@
     "koa-router": "^10.0.0",
     "koa-static": "^5.0.0",
     "mongoose": "^6.0.5",
+    "morgan": "^1.10.0",
     "node-fetch": "^2.6.1",
+    "nodemon": "^3.0.1",
     "oidc-provider": "^7.12.0",
+    "openid-client": "^5.4.3",
+    "passport": "^0.6.0",
     "ts-node": "^10.2.0",
     "typescript": "^4.3.5",
+    "debug": "~2.6.9",
+    "ejs": "~2.6.1",
+    "http-errors": "~1.6.3",
     "yarn": "^1.22.19"
   },
   "devDependencies": {
